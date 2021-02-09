@@ -1,0 +1,22 @@
+body{
+	background: linear-gradient(red, #9198e5);
+}
+.timer_box{
+	position : relative;
+	top : 100px;
+	margin : auto;
+	height : 150px;
+	width : 350px;
+	border : 5px solid black;
+	border-radius : 25px;
+	font-size : 50px;
+}
+#hour{
+	position : absolute;
+	top : 10px;
+	left : 10px;
+	font-size : 100px;
+}
+#dot_1{
+	display: inline ;
+}
