@@ -19,36 +19,51 @@ timer.innerHTML = "00:00:00";
 
 //event listener for start button - triggers clock with stopper function
 start.addEventListener("click",stopper);
-//reset.addEventListener("click",resetter);
+
 
 
 //state of the start button after clicking start
 function start_state(){
 	start.innerHTML = "START";
 	start.style.backgroundColor = "green";
+	reset.style.cursor = "pointer";
+	reset.addEventListener("click",resetter);
+}
+
+function stop_state(){
+	start.innerHTML = "STOP";
+	start.style.backgroundColor = "RED";
+	reset.style.cursor = "not-allowed";
+	reset.removeEventListener("click",null);
 }
 
 //count clicks on start button
 var start_click = 0;
+var time_element ;
+
 function stopper(){
 	start_click += 1;
 	if (start_click%2 == 1){
+		stop_state();
+		time_element = window.setInterval(start_timer,1000); 
+	}else{
 		start_state();
+		window.clearInterval(time_element);
 	}
+}
+
+function resetter(){
+	window.clearInterval(time_element);
+	timer.innerHTML = "00:00:00";
+	seconds = 0;
+	minutes =0;
+	hours = 0;
 }
 
 
 
-function stop_timer(){
+function start_timer(){
 	var seconds_display , hours_display , minutes_display , time;
-
-	if (reset_click == true){
-		seconds = 0;
-		minutes = 0;
-		hours = 0;
-		reset_click = false;
-		click +=1 ;
-	}
 
 	seconds += 1 ;
 
