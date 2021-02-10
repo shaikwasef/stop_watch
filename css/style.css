@@ -6,17 +6,70 @@ body{
 	top : 100px;
 	margin : auto;
 	height : 150px;
-	width : 350px;
+	width : 400px;
 	border : 5px solid black;
 	border-radius : 25px;
 	font-size : 50px;
 }
-#hour{
-	position : absolute;
-	top : 10px;
-	left : 10px;
+#timer{
 	font-size : 100px;
+	position : absolute;
+	height : 150px;
+	width : 400px;
+	text-align : center;
+	line-height: 150px;
 }
-#dot_1{
-	display: inline ;
+#start{
+	position : absolute;
+	top : 180px;
+	left : 160px;
+	background-color : green;
+	height : 80px;
+	width : 80px;
+	border-radius : 50%;
+	font-size : 20px;
+	text-align :center;
+	line-height: 80px;
+	font-weight: bold;
+	border : 5px solid black;
+	cursor : pointer;
+}
+#start:hover {
+	box-shadow: 5px 5px 5px black;
+}
+#lap{
+	position : absolute;
+	top : 180px;
+	left : 40px;
+	background-color : blue;
+	height : 80px;
+	width :80px;
+	border-radius : 50%;
+	text-align :center;
+	line-height: 80px;
+	font-size : 20px;
+	font-weight: bold;
+	border : 5px solid black;
+	cursor : pointer;
+}
+#lap:hover {
+	box-shadow: 5px 5px 5px black;
+}
+#reset{
+	position : absolute;
+	top : 180px;
+	left : 280px;
+	background-color : yellow;
+	height : 80px;
+	width :80px;
+	border-radius : 50%;
+	text-align :center;
+	line-height: 80px;
+	font-size : 20px;
+	font-weight: bold;
+	border : 5px solid black;
+	cursor : pointer;
+}
+#reset:hover {
+	box-shadow: 5px 5px 5px black;
 }
