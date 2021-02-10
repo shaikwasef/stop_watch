@@ -1,6 +1,7 @@
 body{
 	background: linear-gradient(red, #9198e5);
 }
+/* css for box around timer */
 #timer_box{
 	position : relative;
 	top : 100px;
@@ -11,6 +12,7 @@ body{
 	border-radius : 25px;
 	font-size : 50px;
 }
+/* css for timer */
 #timer{
 	font-size : 100px;
 	position : absolute;
@@ -19,6 +21,7 @@ body{
 	text-align : center;
 	line-height: 150px;
 }
+/* css for start button */
 #start{
 	position : absolute;
 	top : 180px;
@@ -37,6 +40,7 @@ body{
 #start:hover {
 	box-shadow: 5px 5px 5px black;
 }
+/*css for lap button */
 #lap{
 	position : absolute;
 	top : 180px;
@@ -55,6 +59,7 @@ body{
 #lap:hover {
 	box-shadow: 5px 5px 5px black;
 }
+/* css for reset button*/
 #reset{
 	position : absolute;
 	top : 180px;
@@ -72,4 +77,37 @@ body{
 }
 #reset:hover {
 	box-shadow: 5px 5px 5px black;
+}
+/* css for scroll lap*/
+.scroll_lap{
+	width : 400px;
+	height : 200px;
+	border : 2px solid green;
+	position : absolute;
+	top : 300px;
+	display : flex ;
+	overflow : auto ;
+	flex-direction : column ;
+	align-items : center ;
+ }
+
+ /* css for lap list */
+ .list{
+ 	width : 350px;
+ 	height: 100px;
+ 	text-align: center ;
+ 	line-height: 100px ;
+ 	border: 10px transparent;
+ 	border-bottom : 10px solid black;
+ 	flex : 0 0 auto;
+ }
+
+/*scrollers */
+ ::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 16px #e1eced;
 }

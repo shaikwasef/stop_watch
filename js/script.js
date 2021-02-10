@@ -7,10 +7,11 @@ var timer_box = document.getElementById("timer_box");
 
 
 //Set inital counters for time
-var seconds = 0 ;
+var seconds = 0 ; 
 var minutes = 0;
 var hours = 0 ;
-var time = "00:00:00";
+var time = "00:00:00"; //set time display string to 00:00:00
+var init_time = "00:00:00"; // init-time records previous time for lap method
 
 //text to display in each block
 start.innerHTML = "START";
@@ -21,9 +22,9 @@ reset.innerHTML = "RESET";
 timer.innerHTML = time;
 
 //event listener for start button - triggers clock with stopper function
-start.addEventListener("click",stopper);
-
-
+start.addEventListener("click",start_watch);
+//Event listener for lap button
+lap.addEventListener("click",lap_list)
 
 //state of the start button after clicking start
 function start_state(){
@@ -43,10 +44,12 @@ function stop_state(){
 
 //count clicks on start button
 var start_click = 0;
+
+// ID for setInterval method
 var time_element ;
 
-
-function stopper(){
+// stopper function executed after clicking start
+function start_watch(){
 	start_click += 1;
 	if (start_click%2 == 1){
 		stop_state();
@@ -57,16 +60,19 @@ function stopper(){
 	}
 }
 
+//reset function executed on clicking reset
 function resetter(){
 	window.clearInterval(time_element);
 	timer.innerHTML = "00:00:00";
+	init_time = "00:00:00"
+	time = "00:00:00";
 	seconds = 0;
 	minutes =0;
 	hours = 0;
 }
 
 
-// function called to start timer
+// function start_timer for setInterval
 function start_timer(){
 	var seconds_display , hours_display , minutes_display;
 
@@ -93,32 +99,25 @@ function start_timer(){
 	hours_display = hours_display.slice(-2);
 
 	time = hours_display + ":" + minutes_display +":"+ seconds_display ; 
-
 	timer.innerHTML = time;
 }
 
-
+//Scroll element added via Jscript 
 var scroll_lap = document.createElement("div");
 timer_box.append(scroll_lap);
-scroll_lap.style.width = "400px";
-scroll_lap.style.height = "400px";
-scroll_lap.style.border = "2px solid green";
-scroll_lap.style.position = "absolute";
-scroll_lap.style.top = "300px";
-scroll_lap.style.margin = "auto";
-scroll_lap.style.display = "flex";
-scroll_lap.style.overflow = "auto";
-scroll_lap.style.flexDirection = "column-reverse";
+scroll_lap.className = "scroll_lap";
 
-lap.addEventListener("click",lap_list);
+
+var time_difference ; // Value to display using lap
+var list_node = null ; // node initiated with null ,  to conduct the flow of lap times from top to bottom
 
 function lap_list(){
 	var list = document.createElement("div");
-	scroll_lap.append(list);
-	list.style.width = "inherit";
-	list.style.height = "150px" ;
-	list.style.border = " 3px transparent";
-	list.style.borderBottom = "3px solid black";
-	list.style.display = ""
-	list.innerHTML = time ;
+	scroll_lap.insertBefore(list,list_node); // Insert lap times from top to bottom
+	list_node = list; // reset list_node to present list
+	list.className = "list"; // set class name of list to list
+	time_difference =  ("00" + String(parseInt(time.slice(-8,-6) - init_time.slice(-8,-6)))).slice(-2)+ ":" + ("00" + String(parseInt(time.slice(-5,-3) - init_time.slice(-5,-3)))).slice(-2)+ ":" +("00" + String(parseInt(time.slice(-2) - init_time.slice(-2)))).slice(-2);
+	list.innerHTML =  time_difference;
+	init_time = time;
 }
+
