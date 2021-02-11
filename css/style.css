@@ -1,88 +1,71 @@
 body{
-	background: linear-gradient(red, #9198e5);
+	background: #232323;
 }
 /* css for box around timer */
 #timer_box{
 	position : relative;
 	top : 100px;
+	display : flex;
+	flex-direction :column;
 	margin : auto;
-	height : 150px;
 	width : 400px;
-	border : 5px solid black;
 	border-radius : 25px;
 	font-size : 50px;
 }
 /* css for timer */
 #timer{
 	font-size : 100px;
-	position : absolute;
-	height : 150px;
-	width : 400px;
+	color : white;
 	text-align : center;
 	line-height: 150px;
 }
-/* css for start button */
-#start{
-	position : absolute;
-	top : 180px;
-	left : 160px;
-	background-color : green;
-	height : 80px;
-	width : 80px;
-	border-radius : 50%;
-	font-size : 20px;
-	text-align :center;
-	line-height: 80px;
+.row_buttons{
+	display : flex;
+	flex-direction : row;
+	justify-content: space-evenly;
+}
+
+.buttons{
 	font-weight: bold;
 	border : 5px solid black;
+	height : 100px;
+	width : 100px;
+	border-radius : 50%;
+	font-size : 30px;
+	text-align :center;
+	line-height: 100px;
 	cursor : pointer;
+	border-style : double ;
+	border-width : 3px ;
 }
-#start:hover {
-	box-shadow: 5px 5px 5px black;
+
+
+/* css for start button */
+.start{
+	background-color :#013606;
+	color : #03530B;
+}
+
+.stop{
+	background-color :#FB5557;
+	color : #FBC155;
 }
 /*css for lap button */
-#lap{
-	position : absolute;
-	top : 180px;
-	left : 40px;
-	background-color : blue;
-	height : 80px;
-	width :80px;
-	border-radius : 50%;
-	text-align :center;
-	line-height: 80px;
-	font-size : 20px;
-	font-weight: bold;
-	border : 5px solid black;
-	cursor : pointer;
+.lap{
+	background-color : #1E1E1E;
+	color:#565656;
 }
-#lap:hover {
-	box-shadow: 5px 5px 5px black;
-}
+
 /* css for reset button*/
-#reset{
-	position : absolute;
-	top : 180px;
-	left : 280px;
-	background-color : yellow;
-	height : 80px;
-	width :80px;
-	border-radius : 50%;
-	text-align :center;
-	line-height: 80px;
-	font-size : 20px;
-	font-weight: bold;
-	border : 5px solid black;
-	cursor : pointer;
+.reset{
+	background-color : #F3640B;
+	color:#FBB183;
 }
-#reset:hover {
-	box-shadow: 5px 5px 5px black;
-}
+
 /* css for scroll lap*/
 .scroll_lap{
 	width : 400px;
 	height : 200px;
-	border : 2px solid green;
 	position : absolute;
 	top : 300px;
 	display : flex ;
@@ -94,11 +77,12 @@ body{
  /* css for lap list */
  .list{
  	width : 350px;
- 	height: 100px;
+ 	height: 80px;
  	text-align: center ;
- 	line-height: 100px ;
+ 	line-height: 80px ;
+ 	border-radius : 30% ;
  	border: 10px transparent;
- 	border-bottom : 10px solid black;
+ 	border-bottom : 2px solid white;
  	flex : 0 0 auto;
  }
 
@@ -111,3 +95,5 @@ body{
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 16px #e1eced;
 }
+
+
